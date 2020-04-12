@@ -8,5 +8,5 @@ const johnBMI = johnMass / (johnHeight * johnHeight);
 
 const diff = markBMI > johnBMI ? 'higher' : 'lower';
 
-console.log('Mark\'s BMI is ' + diff + ' than John\'s BMI.')
+console.log('Mark\'s BMI is ' + diff + ' than John\'s BMI.');
 alert('Mark\'s BMI is ' + diff + ' than John\'s BMI.');
