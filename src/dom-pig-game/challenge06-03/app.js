@@ -8,39 +8,34 @@ GAME RULES:
 */
 
 const defaultHighScore = 25;
-let activePlayer, gamePlaying, highScore, prevRoll, roundScore, scores;
+let activePlayer, gamePlaying, highScore, roundScore, scores;
 initGame();
 
 document.querySelector('.btn-roll').addEventListener('click', () => {
-  let isDoubleSix;
   if (gamePlaying) {
     // 1. Random number
-    let dice = Math.floor(Math.random() * 6) + 1;
+    let die1Roll = Math.floor(Math.random() * 6) + 1;
+    let die2Roll = Math.floor(Math.random() * 6) + 1;
     // 2. Display result
-    let diceDOM = document.querySelector('.dice');
-    diceDOM.style.display = 'block';
-    diceDOM.src = '../dice-' + dice + '.png';
+    //let diceDOM = document.querySelector('.dice');
+    document.getElementById('die1').style.display = 'block';
+    document.getElementById('die2').style.display = 'block';
+    //diceDOM.style.display = 'block';
+    document.getElementById('die1').src = '../dice-' + die1Roll + '.png';
+    document.getElementById('die2').src = '../dice-' + die2Roll + '.png';
+    //diceDOM.src = '../dice-' + dice + '.png';
 
     // 3. Update round score if the rolled score is not "1"
-    if (dice !== 1) {
-      if (dice === 6) {
-        if (prevRoll === 6) {
-          isDoubleSix = true;
-          console.log('dice=' + dice + '; prev=' + prevRoll);
+    if (die1Roll === 6 && die2Roll === 6) {
+          console.log('die1=' + die1Roll + '; die2=' + die2Roll);
           scores[activePlayer] = 0;
           document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer].toString();
           alert('Player #' + (activePlayer + 1) + ' has rolled double 6! Total score is lost!');
           nextPlayer();
-        }
-      }
-      if (!isDoubleSix) {
-        roundScore += dice;
-        prevRoll = dice;
+    } else {
+        roundScore += die1Roll + die2Roll;
         console.log('set current and previous dice roll');
         document.querySelector('#current-' + activePlayer).textContent = roundScore.toString();
-      }
-    } else {
-      nextPlayer();
     }
   }
 })
@@ -61,7 +56,8 @@ document.querySelector('.btn-hold').addEventListener('click', () => {
       document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
       document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
       document.querySelector('#name-' + activePlayer).textContent = 'WINNER!';
-      document.querySelector('.dice').style.display = 'none';
+      document.getElementById('die1').style.display = 'none';
+      document.getElementById('die2').style.display = 'none';
     } else {
       nextPlayer();
     }
@@ -72,7 +68,6 @@ document.querySelector('.btn-new').addEventListener('click', initGame);
 
 function nextPlayer() {
   roundScore = 0;
-  prevRoll = 0;
   document.getElementById('current-' + activePlayer).textContent = '0';
   //document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
   document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');
@@ -99,9 +94,9 @@ function initGame() {
   scores = [0, 0];
   roundScore = 0;
   activePlayer = 0;
-  prevRoll = 0;
 
-  document.querySelector('.dice').style.display = 'none';
+  document.getElementById('die1').style.display = 'none';
+  document.getElementById('die2').style.display = 'none';
   document.getElementById('score-0').textContent = '0';
   document.getElementById('score-1').textContent = '0';
   document.getElementById('current-0').textContent = '0';
