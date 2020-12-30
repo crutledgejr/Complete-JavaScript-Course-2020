@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/crutledgejr/complete-javascript-course.git",
   "author": "Colston Rutledge Jr <colston.rutledgejr@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
 }
