@@ -8,5 +8,8 @@
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "run-live-server": "node_modules/live-server/live-server.js --browser=chrome --host=localhost --port=9000 --wait=5000"
   }
 }

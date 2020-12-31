@@ -1,0 +1,27 @@
+{
+  "name": "forkify-crj",
+  "version": "1.0.0",
+  "description": "Udemy Complete JavaScript Course - Forkify project.",
+  "main": "index.js",
+  "author": "Colston Rutledge, Jr.",
+  "license": "ISC",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open \"Google Chrome\"",
+    "add-dev": "yarn add $1 -D --registry https://registry.npmjs.org",
+    "add-proj": "yarn add $1 --registry https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "3.3.8",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
