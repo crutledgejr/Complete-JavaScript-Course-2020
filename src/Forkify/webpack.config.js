@@ -8,7 +8,8 @@ module.exports = {
     filename: 'js/bundle.js'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    open: 'Google Chrome'
   },
   plugins: [
     new HtmlWebpackPlugin({
