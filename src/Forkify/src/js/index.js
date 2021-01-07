@@ -22,7 +22,6 @@ const state = {};
 const controlSearch = async () => {
   // 1 - get query from the view
   const query = searchView.getInput();
-  console.log(`query grab ${query}`);
 
   if (query) {
     // 2 - new search object and add to app state
@@ -67,7 +66,6 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
   // Get ID from URL
   const id = window.location.hash.replace('#', '');
-  console.log(id);
 
   if (id) {
     // Prepare the UI for changes
